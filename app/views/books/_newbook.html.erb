@@ -1,0 +1,22 @@
+<h2>New book</h2>
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<%= form_with model:book, local:true do |f| %>
+  <div class="field row">
+    <%= f.label :title %>
+    <%= f.text_field :title, class:"col-md-12" %>
+  </div>
+  <div class="field row">
+    <%= f.label :body %>
+    <%= f.text_area :body, class:"col-md-12" %>
+  </div>
+  <div class="actions row">
+    <%= f.submit class: "btn btn-primary col-md-12 btn btn-success" %>
+  </div>
+<% end %>
