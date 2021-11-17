@@ -33,6 +33,12 @@
                 </td>
                 <td><%= link_to book.title, book_path(book) %></td> <!--book_path(詳細表示)で(|book|)の投稿(.id)を持ってくる-->
                 <td><%= book.body %></td>
+                <td><!--favoriteについての記述-->
+                  <div id="book_<%= book.id %>">
+                    <%= render 'favorites/favorite', book: book %>
+                  </div>
+             </td>
+                <td>コメント数：<%= book.book_comments.count %></td>
             <% end %>
           </tbody>
         </table>
